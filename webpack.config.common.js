@@ -5,6 +5,17 @@ function resolve (dir) {
   return path.join(__dirname, '.', dir)
 }
 
+const createLintingRule = () => ({
+  test: /\.(js|vue)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('src'), resolve('test')],
+  options: {
+    formatter: require('eslint-friendly-formatter'),
+    emitWarning: !user.devServer.showEslintErrorsInOverlay
+  }
+})
+
 const CSSLoaders = [
   {
     loader: 'css-loader',
@@ -51,6 +62,7 @@ const webpack = {
   },
   module: {
     rules: [
+      ...(user.devServer.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader'//,

@@ -42,7 +42,15 @@ const devServer = {
 
   // Set this to true to display PHP logs in your terminal
   // /!\ does nothing if you use the `proxy` option
-  logPhpErrors: true
+  logPhpErrors: true,
+
+  // Use Eslint Loader?
+  // If true, your code will be linted during bundling and
+  // linting errors and warnings will be shown in the console.
+  useEslint: true,
+  // If true, eslint errors and warnings will also be shown in the error overlay
+  // in the browser.
+  showEslintErrorsInOverlay: false
 }
 
 /**
