@@ -1,4 +1,9 @@
+const path = require('path')
 const user = require('./scripts/utils/format-config')(require('./main.config.js'))
+
+function resolve (dir) {
+  return path.join(__dirname, '.', dir)
+}
 
 const CSSLoaders = [
   {
@@ -38,10 +43,19 @@ const webpack = {
     chunkFilename: '[name].[id].chunk.js'
   },
   resolve: {
-    alias: {}
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+    }
   },
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'//,
+        //options: vueLoaderConfig
+      },
       {
         test: /\.(js)$/,
         loader: 'babel-loader',
