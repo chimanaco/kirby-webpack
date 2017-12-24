@@ -1,4 +1,5 @@
 const fs = require('fs-extra')
+const ip = require('ip')
 const path = require('path')
 const browserSync = require('browser-sync')
 const webpack = require('webpack')
@@ -52,7 +53,7 @@ function phpInit () {
 
   phpServer = php({
     bin: user.devServer.phpBinary || 'php',
-    host: 'localhost',
+    host: ip.address(),
     root: user.paths.www,
     verbose: false,
     promptBinary: true,
@@ -131,7 +132,8 @@ function browserSyncInit () {
         proxyReq.setHeader('X-Forwarded-Host', req.headers.host)
       }]
     },
-    open: false,
+    browser: "google chrome canary",
+    open: true,
     reloadOnRestart: true,
     notify: false,
     files: [path.join(user.paths.www, '**/*')],
