@@ -8,7 +8,7 @@ const path = require('path')
  */
 const entries = {
   'src/index.js': 'www/assets/bundle.js',
-  'src/index.less': 'www/assets/bundle.css'
+  'src/index.scss': 'www/assets/bundle.css'
 }
 
 /**
@@ -20,7 +20,7 @@ const css = {
   // Be sure to have your entries and sourcefiles named with the good file ext
   // —> .scss for sass / .less for less / .styl for stylus
   // Set to 'manual' to handle css yourself (using css-next for instance)
-  preprocessor: 'less'
+  preprocessor: 'sass'
 }
 
 /**

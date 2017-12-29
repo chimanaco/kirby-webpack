@@ -133,7 +133,7 @@ That means that [`www/`](www) is the only folder you have to deploy to your serv
 ###### Example
 ```css
 /**
- * Your less source file is 'src/index.less'
+ * Your less source file is 'src/index.scss'
  * It will be bundle to 'www/assets/bundle.css'
  * You want to require 'www/assets/images/logo.png' in your less file.
  */
