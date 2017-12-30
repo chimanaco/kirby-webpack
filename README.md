@@ -85,6 +85,13 @@ $ npm i -g unboil # install unboil globally
 $ cd my-project
 $ unboil          # use it on your brand new kirby-webpack installation
 ```
+##### Add json API
+> [lord-executor/`kirby-json-api`](https://github.com/lord-executor/kirby-json-api)
+
+```sh
+$ sh setup.sh
+```
+
 
 <br><br>
 
