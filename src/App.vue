@@ -5,8 +5,18 @@
 </template>
 
 <script>
+
+import $ from 'jquery'
+
 export default {
-  name: 'app'
+  name: 'app',
+  created() {
+    const vm = this
+    $.getJSON('/api/page/home', function(json) {
+      console.log('titles ' + JSON.stringify(json))
+      vm.items = json
+    })
+  }
 }
 </script>
 
@@ -18,9 +28,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-
-  p {
-    background: blue;
-  }
 }
 </style>
